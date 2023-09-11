@@ -1,4 +1,9 @@
-import pandas as pd
+import dataPull
+import pandas
+
+url = "https://fbref.com/en/comps/9/Premier-League-Stats"
+soup = dataPull.teamPull(url)
+print(soup)
 
 """
 Team Stats to track from FBRef:
