@@ -1,3 +1,5 @@
+import pandas as pd
+
 """
 Team Stats to track from FBRef:
     Season Stats:
