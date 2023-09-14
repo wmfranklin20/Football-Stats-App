@@ -17,6 +17,7 @@ soup = pagePull()
 ### Takes table id text and returns table element ###
 def pullTable(div):
     table = soup.find(id=div)
+    rows = table.find_all("tr")
     return(table)
 
 ### Takes a single row from table and parses data out into seperate list items to be called ###
@@ -30,24 +31,24 @@ def rowData(table, row):
 #--- Individual Table Pulls ---#
 
 ### Regular Season Stats Table ###
-regSeasonTableID = "switcher_results2023-202491"
-regSeasonTable = pullTable(regSeasonTableID)
+
+regSeasonTable = pullTable("switcher_results2023-202491")
 regSeasonTable_Rows = regSeasonTable.find_all("tr")
 
 ### Squad Standard Stats Table ###
-squadStandardStatsTableID = "switcher_stats_squads_standard"
-squadStandardStatsTable = pullTable(squadStandardStatsTableID)
+
+squadStandardStatsTable = pullTable("switcher_stats_squads_standard")
 squadStandardStatsTable_Rows = squadStandardStatsTable.find_all("tr")
 
 test = rowData(squadStandardStatsTable_Rows, 2)
 print(test)
 
-squadShootingTable = "switcher_stats_squads_shooting"
-squadPassingTable = "switcher_stats_squads_passing"
-squadPassingTypesTable = "switcher_stats_squads_passing_types"
-squadGCATable = "switcher_stats_squads_gca"
-squadDefensiveActionsTable = "switcher_stats_squads_defense"
-squadPosessionTable = "switcher_stats_squads_possession"
+squadShootingTable = pullTable("switcher_stats_squads_shooting")
+squadPassingTable = pullTable("switcher_stats_squads_passing")
+squadPassingTypesTable = pullTable("switcher_stats_squads_passing_types")
+squadGCATable = pullTable("switcher_stats_squads_gca")
+squadDefensiveActionsTable = pullTable("switcher_stats_squads_defense")
+squadPosessionTable = pullTable("switcher_stats_squads_possession")
 
 #--- Data formatting and structuring ---#
 
